@@ -19,6 +19,6 @@ Ludum Dare 59
 https://ldjam.com
 
 Ludum Dare 60
-17 April 2026
+October 2026
 https://ldjam.com
 ```
