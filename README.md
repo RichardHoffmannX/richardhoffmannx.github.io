@@ -58,13 +58,13 @@ Power of the Force Convention 2026, Cologne, Germany
 16 -17 May 2026
 https://www.poweroftheforce.net
 
-DoKoMi 2026, Düsseldorf, Germany
-29 - 31 May 2026
-https://www.dokomi.de
-
 FedCon 2026, Bonn, Germany
 22 - 24 May 2026
 https://www.fedcon.de
+
+DoKoMi 2026, Düsseldorf, Germany
+29 - 31 May 2026
+https://www.dokomi.de
 
 Flippermania 2026 in Bünde, Germany
 30 – 31  May 2026
@@ -75,6 +75,10 @@ GITEX AI EUROPE 2026 Berlin, Germany
 From AI and Cybersecurity to Deep Tech breakthroughs, GITEX AI EUROPE (30 June-1 July 2026 at Messe Berlin, South Entrance) is the launchpad for next-gen solutions, global investments, and bold collaborations. This is where partnerships are forged, startups get funded and game-changing ideas go global.
 30 June - 21 July 2026
 https://www.gitexeurope.com
+
+Retro Spiele Club Hamburg, Germany
+Sommerfest 2026: SA, 22.08. (ab 13:00 – ca. 22:00)
+https://www.retrospieleclub.de
 
 devcom 2026, Cologne, Germany
 23 – 25 August 2026
@@ -133,6 +137,9 @@ Ludum Dare 60
 October 2026
 https://ldjam.com
 
+Retro Spiele Club Hamburg, Germany
+Weihnachtsfeier 2026: SA, 12.12. (ab 13:00 – ca. 22:00) (*)
+https://www.retrospieleclub.de
 
 C-Dinner:
 
