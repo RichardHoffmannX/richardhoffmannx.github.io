@@ -10,6 +10,10 @@ German Pinball Expo 2026 - Bielefeld, Germany
 10 - 12 April 2026
 https://www.bielefeld.jetzt/node/1545766
 
+Bildungskonferenz, Berlin #bildung26
+15. - 16.04.2026
+https://bildungs-konferenz.de
+
 CAGGTUS - Leipzig, Germany
 17 - 19 April 2026
 https://www.caggtus.de
@@ -17,6 +21,9 @@ https://www.caggtus.de
 Ludum Dare 59
 17 April 2026
 https://ldjam.com
+
+Webinar zur Bitkom-Studie „Quantencomputing in der deutschen Wirtschaft 2026“
+Freitag, 17. April 2026
 
 bitkom Industrial Metaverse Stuttgart & Online
 Roundtable Metaverse #28 | Industrial Metaverse, Industrial AI & Physical AI – Mehr Performance durch die Kopplung von physischer und virtueller Welt
