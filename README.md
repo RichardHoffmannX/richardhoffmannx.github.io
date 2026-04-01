@@ -27,7 +27,13 @@ Flippermania 2026 in Bünde, Germany
 Roger Sharpe – „The Man Who Saved the Game“
 https://www.pinballevents.de/GPA/2026-FM/
 
+gamescom 2026
+26 - 30 August 2026
+https://www.gamescom.global
+
 Ludum Dare 60
 October 2026
 https://ldjam.com
+
+
 ```
