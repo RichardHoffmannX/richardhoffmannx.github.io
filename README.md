@@ -23,7 +23,8 @@ Ludum Dare 59
 https://ldjam.com
 
 Webinar zur Bitkom-Studie „Quantencomputing in der deutschen Wirtschaft 2026“
-Freitag, 17. April 2026
+Freitag, 17. April 2026, 10:00 - 11:00
+https://www.bitkom.org/Bitkom/Publikationen/Quantencomputing-in-der-deutschen-Wirtschaft-2026
 
 bitkom Industrial Metaverse Stuttgart & Online
 Roundtable Metaverse #28 | Industrial Metaverse, Industrial AI & Physical AI – Mehr Performance durch die Kopplung von physischer und virtueller Welt
