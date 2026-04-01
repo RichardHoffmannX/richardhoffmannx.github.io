@@ -18,6 +18,11 @@ Ludum Dare 59
 17 April 2026
 https://ldjam.com
 
+bitkom Industrial Metaverse Stuttgart & Online
+Roundtable Metaverse #28 | Industrial Metaverse, Industrial AI & Physical AI – Mehr Performance durch die Kopplung von physischer und virtueller Welt
+27 April 2026
+https://www.bitkom.org/Roundtable-Metaverse
+
 Wikimedia Hackathon 2026 - Milan, Italy 
 1 – 3 May 2026
 https://pretix.eu/wikimedia/Hackathon-2026/
