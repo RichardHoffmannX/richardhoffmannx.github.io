@@ -14,6 +14,11 @@ German Pinball Expo 2026 - Bielefeld, Germany
 10 - 12 April 2026
 https://www.bielefeld.jetzt/node/1545766
 
+Rising Tide Challenge 2026
+April 13 – June 30, 2026
+Global Game Jam and Blue Ocean Games are teaming up again to bring you a global “trailer jam” where your idea could lead to investment.
+https://blueoceangames.com/challenge/ggj-2026
+
 Bildungskonferenz, Berlin #bildung26
 15. - 16.04.2026
 https://bildungs-konferenz.de
