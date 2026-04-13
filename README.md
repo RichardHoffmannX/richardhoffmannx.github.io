@@ -5,6 +5,15 @@ Gamecity Hamburg, Prototype Funding 2026
 23 February - 30 March 2026
 https://www.gamecity-hamburg.de
 
+SXSW South by Southwest Austin, TX, USA
+12 - 18 March 2026
+South by Southwest is an annual conglomeration of parallel film, interactive media, and music festivals, and conferences organized jointly that take place in mid-March in Austin, Texas, United States. It began in 1987 and has continued growing in both scope and size every year.
+https://sxsw.com
+
+SXSW South by Southwest London, UK
+1 - 6 June 2026
+https://www.sxswlondon.com
+
 Revision 2026, E-Werk - Saarbrücken, Germany
 3 - 6 April 2026
 https://2026.revision-party.net
