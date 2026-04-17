@@ -167,11 +167,15 @@ https://readyplayerone.fandom.com/wiki/OASIS
 
 Ready Player One - Book
 The book was published on August 16, 2011. An audiobook narrated by Wil Wheaton was released the same day
-https://en.wikipedia.org › wiki › Ready_Player_One
+https://en.wikipedia.org/wiki/Ready_Player_One
 
 Ready Player One - Movie
 directed by Steven Spielberg, was released in the United States on March 29, 2018
 https://en.wikipedia.org/wiki/Ready_Player_One_(film)
+
+Snow Crash - Book
+Publication date. June 1992
+https://en.wikipedia.org/wiki/Snow_Crash
 
 
 **Sword Art Online**
@@ -183,7 +187,7 @@ November 6th, 13:00 JST
 
 
 
-**C-Dinner:**
+**C-Dinner**
 
 01.04. Wolfenbüttel - “Sensorik - Möglichkeiten & Anwendungsfälle” mit Udo Borgmann (CEO Pan Acousitics)
 08.04. Hannover “Intrapreneurship - Gründen innerhalb des Unternehmens” mit Prof. Christian Lehmann (NEXSTER) & Uwe Berger (B&B)
