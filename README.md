@@ -155,7 +155,35 @@ Retro Spiele Club Hamburg, Germany
 Weihnachtsfeier 2026: SA, 12.12. (ab 13:00 – ca. 22:00) (*)
 https://www.retrospieleclub.de
 
-C-Dinner:
+----------------
+**Recurring Events**
+----------------
+
+**Ready Player One**
+OASIS Release (Ready Player One Universe)
+December 8, 2025
+In the Ready Player One universe, the OASIS (Ontologically Anthropocentric Sensory Immersive Simulation) was released on December 8, 2025
+https://readyplayerone.fandom.com/wiki/OASIS
+
+Ready Player One - Book
+The book was published on August 16, 2011. An audiobook narrated by Wil Wheaton was released the same day
+https://en.wikipedia.org › wiki › Ready_Player_One
+
+Ready Player One - Movie
+directed by Steven Spielberg, was released in the United States on March 29, 2018
+https://en.wikipedia.org/wiki/Ready_Player_One_(film)
+
+
+**Sword Art Online**
+Sword Art Online sales in stores begin.
+November 5th
+
+Start of the Sword Art Online Official Service. Kirito logs into the game at this exact time.
+November 6th, 13:00 JST
+
+
+
+**C-Dinner:**
 
 01.04. Wolfenbüttel - “Sensorik - Möglichkeiten & Anwendungsfälle” mit Udo Borgmann (CEO Pan Acousitics)
 08.04. Hannover “Intrapreneurship - Gründen innerhalb des Unternehmens” mit Prof. Christian Lehmann (NEXSTER) & Uwe Berger (B&B)
