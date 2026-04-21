@@ -85,6 +85,10 @@ Flippermania 2026 in Bünde, Germany
 Roger Sharpe – „The Man Who Saved the Game“
 https://www.pinballevents.de/GPA/2026-FM/
 
+ISCRAM 2026
+31 - 3 June 2026, Den Haag, Netherlands
+https://iscram2026.com
+
 GITEX AI EUROPE 2026 Berlin, Germany
 From AI and Cybersecurity to Deep Tech breakthroughs, GITEX AI EUROPE (30 June-1 July 2026 at Messe Berlin, South Entrance) is the launchpad for next-gen solutions, global investments, and bold collaborations. This is where partnerships are forged, startups get funded and game-changing ideas go global.
 30 June - 21 July 2026
