@@ -10,10 +10,6 @@ SXSW South by Southwest Austin, TX, USA
 South by Southwest is an annual conglomeration of parallel film, interactive media, and music festivals, and conferences organized jointly that take place in mid-March in Austin, Texas, United States. It began in 1987 and has continued growing in both scope and size every year.
 https://sxsw.com
 
-SXSW South by Southwest London, UK
-1 - 6 June 2026
-https://www.sxswlondon.com
-
 Revision 2026, E-Werk - Saarbrücken, Germany
 3 - 6 April 2026
 https://2026.revision-party.net
@@ -86,8 +82,13 @@ Roger Sharpe – „The Man Who Saved the Game“
 https://www.pinballevents.de/GPA/2026-FM/
 
 ISCRAM 2026
-31 - 3 June 2026, Den Haag, Netherlands
+31 - 3 June 2026, The Hague, Netherlands
+The theme of ISCRAM 2026, ‘Building Stronger Futures’, highlights the collective risks posed by natural hazards, cybersecurity, artificial intelligence, critical infrastructure, and climate change.
 https://iscram2026.com
+
+SXSW South by Southwest London, UK
+1 - 6 June 2026
+https://www.sxswlondon.com
 
 GITEX AI EUROPE 2026 Berlin, Germany
 From AI and Cybersecurity to Deep Tech breakthroughs, GITEX AI EUROPE (30 June-1 July 2026 at Messe Berlin, South Entrance) is the launchpad for next-gen solutions, global investments, and bold collaborations. This is where partnerships are forged, startups get funded and game-changing ideas go global.
