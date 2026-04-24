@@ -64,6 +64,10 @@ May the Fourth 2026, Worldwide
 https://www.lego.com/en-de/page/star-wars-day-deals
 https://stonewars.com/rumors/lego-star-wars-2026-rumors-roundup/
 
+ZZAP! Live 2026
+Fri 15 May 8:00 PM - Sat 16 May 2026 9:00 PM
+https://www.tickettailor.com/events/fusionretrobooks/2032360
+
 Power of the Force Convention 2026, Cologne, Germany
 16 -17 May 2026
 https://www.poweroftheforce.net
@@ -89,6 +93,10 @@ https://iscram2026.com
 SXSW South by Southwest London, UK
 1 - 6 June 2026
 https://www.sxswlondon.com
+
+Microsoft Build 2026
+June 2–3, 2026 / San Francisco and online
+https://register.build.microsoft.com/flow/microsoft/build26/welcome/page/welcome?wt.mc_id=msbuild26_ciarmar_corp_np_oo_dc_wb
 
 GITEX AI EUROPE 2026 Berlin, Germany
 From AI and Cybersecurity to Deep Tech breakthroughs, GITEX AI EUROPE (30 June-1 July 2026 at Messe Berlin, South Entrance) is the launchpad for next-gen solutions, global investments, and bold collaborations. This is where partnerships are forged, startups get funded and game-changing ideas go global.
