@@ -64,12 +64,18 @@ May the Fourth 2026, Worldwide
 https://www.lego.com/en-de/page/star-wars-day-deals
 https://stonewars.com/rumors/lego-star-wars-2026-rumors-roundup/
 
+comicpark Erfurt
+09. Mai 2026, 10:00 – 10. Mai 2026, 18:00
+egapark, Gothaer Str. 38, 99094 Erfurt, Deutschland
+Egal ob du im Cosplay glänzen willst, dein Lieblingscomic finally live in Händen halten willst oder einfach nur ein Wochenende voller Geek-Kultur erleben willst – ComicPark 2026 in Erfurt wird dein Highlight!
+https://www.comicpark.de
+
 ZZAP! Live 2026
 Fri 15 May 8:00 PM - Sat 16 May 2026 9:00 PM
 https://www.tickettailor.com/events/fusionretrobooks/2032360
 
 Power of the Force Convention 2026, Cologne, Germany
-16 -17 May 2026
+16 - 17 May 2026
 https://www.poweroftheforce.net
 
 FedCon 2026, Bonn, Germany
