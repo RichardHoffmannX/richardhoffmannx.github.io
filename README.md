@@ -101,7 +101,7 @@ SXSW South by Southwest London, UK
 https://www.sxswlondon.com
 
 Microsoft Build 2026
-June 2–3, 2026 / San Francisco and online
+June 2 – 3, 2026 / San Francisco and online
 https://register.build.microsoft.com/flow/microsoft/build26/welcome/page/welcome?wt.mc_id=msbuild26_ciarmar_corp_np_oo_dc_wb
 
 GITEX AI EUROPE 2026 Berlin, Germany
@@ -153,6 +153,12 @@ https://hanacon.de
 Maker Faire 2026, Hannover, Germany
 15 – 16 August 2026
 https://maker-faire.de/en/hannover/
+
+comicpark Rostock
+29. Aug. 2026, 10:00 – 30. Aug. 2026, 18:00
+IGA Park, Schmarl Dorf 40, 18106 Rostock, Deutschland
+Am 29.-30. August 2026 verwandelt sich der IGA-Park in Rostock in ein buntes Paradies für Comic-, Manga- und Cosplay-Fans. Freu dich auf spannende Shows, kreative Künstlerstände, Walking Acts, Workshops und natürlich jede Menge Gelegenheit, deine Lieblingscharaktere zu treffen.
+https://www.comicpark.de
 
 NiCon 2026, Hannover
 02 - 04 Oct 2026
