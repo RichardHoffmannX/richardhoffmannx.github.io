@@ -109,6 +109,15 @@ From AI and Cybersecurity to Deep Tech breakthroughs, GITEX AI EUROPE (30 June-1
 30 June - 21 July 2026
 https://www.gitexeurope.com
 
+XRCC 2026
+July 01-02, 2026
+Conference Days
+Industry talks and networking happen alongside hackathon
+July 03, 2026
+Awards Ceremony
+Live presentations, judging, and an winner announcements
+https://www.xrcc.events/schedule
+ 
 Retro Spiele Club Hamburg, Germany
 Sommerfest 2026: SA, 22.08. (ab 13:00 – ca. 22:00)
 https://www.retrospieleclub.de
