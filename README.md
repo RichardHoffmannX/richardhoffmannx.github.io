@@ -104,6 +104,14 @@ Microsoft Build 2026
 June 2 – 3, 2026 / San Francisco and online
 https://register.build.microsoft.com/flow/microsoft/build26/welcome/page/welcome?wt.mc_id=msbuild26_ciarmar_corp_np_oo_dc_wb
 
+1. Summer Game Fest 2026 am Freitag, 5. Juni 2026 - Die große Hauptshow startet um 23:00 MESZ
+2. PlayStation State of Play: 2. Juni, 23:00
+3. Wholesome Direct: 6. Juni, 18:00
+4. Future Games Show: 6. Juni, 21:00
+5. Xbox Games Showcase: 7. Juni, 19:00
+6. PC Gaming Show: 7. Juni, 21:00
+7. Nintendo Direct, irgendwann Mitte Juni erwartet
+
 GITEX AI EUROPE 2026 Berlin, Germany
 From AI and Cybersecurity to Deep Tech breakthroughs, GITEX AI EUROPE (30 June-1 July 2026 at Messe Berlin, South Entrance) is the launchpad for next-gen solutions, global investments, and bold collaborations. This is where partnerships are forged, startups get funded and game-changing ideas go global.
 30 June - 21 July 2026
