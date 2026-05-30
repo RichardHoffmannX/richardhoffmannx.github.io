@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events 2026 | Richard Hoffmann</title>
+  <style>
+    :root {
+      --bg: #070914;
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --text: #f7f8ff;
+      --muted: #aab3d1;
+      --line: rgba(255, 255, 255, 0.13);
+      --accent: #7c5cff;
+      --accent-2: #00e5ff;
+      --pink: #ff4fd8;
+      --green: #50ffb1;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 92, 255, 0.32), transparent 34%),
+        radial-gradient(circle at 80% 10%, rgba(255, 79, 216, 0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(0, 229, 255, 0.24), transparent 34%),
+        linear-gradient(135deg, #070914 0%, #11182d 55%, #080a13 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+      pointer-events: none;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      position: relative;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 14px 35px rgba(0, 229, 255, 0.16);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav a,
+    .back-link {
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .nav a:hover,
+    .back-link:hover {
+      transform: translateY(-2px);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 32px;
+    }
+
+    .hero-card,
+    .stats-card {
+      border-radius: 34px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: clamp(28px, 5vw, 52px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -160px;
+      top: -160px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      opacity: 0.16;
+      filter: blur(4px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    h1 {
+      position: relative;
+      max-width: 780px;
+      font-size: clamp(2.55rem, 6vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.07em;
+      z-index: 1;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, var(--accent-2), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-card p {
+      position: relative;
+      z-index: 1;
+      max-width: 690px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .stats-card {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat {
+      min-height: 150px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stat strong {
+      font-size: 2.2rem;
+      letter-spacing: -0.05em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .filters {
+      position: sticky;
+      top: 14px;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 30px;
+      padding: 12px;
+      border-radius: 24px;
+      background: rgba(7, 9, 20, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(18px);
+    }
+
+    .filters a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.92rem;
+    }
+
+    .filters a:hover { color: var(--text); background: rgba(255,255,255,0.13); }
+
+    .month {
+      margin-top: 28px;
+    }
+
+    .month h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      letter-spacing: -0.045em;
+    }
+
+    .month h2::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, rgba(255,255,255,0.22), transparent);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .event {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      min-height: 150px;
+      padding: 18px;
+      border-radius: 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+      transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+    }
+
+    .event:hover {
+      transform: translateY(-4px);
+      background: var(--panel-strong);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .date {
+      min-height: 92px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.46), rgba(0, 229, 255, 0.18));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .date strong { display: block; font-size: 1.55rem; line-height: 1; }
+    .date span { display: block; margin-top: 5px; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .event h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .event p {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.78rem;
+    }
+
+    .event a.more {
+      display: inline-flex;
+      width: fit-content;
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.82;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .event a.more:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+
+    .wide { grid-column: span 2; }
+
+    .recurring {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .recurring h2 {
+      font-size: clamp(1.7rem, 3vw, 2.8rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .recurring > p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .recurring-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mini-card h3 { margin-bottom: 8px; font-size: 1rem; }
+    .mini-card p { color: var(--muted); line-height: 1.5; font-size: 0.92rem; }
+    .mini-card a { display: inline-block; margin-top: 10px; text-decoration: none; font-weight: 700; opacity: 0.82; }
+    .mini-card a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: 44px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .event-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: span 1; }
+      .recurring-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .nav { justify-content: flex-start; }
+      .stats-card { grid-template-columns: 1fr; }
+      .event { grid-template-columns: 1fr; }
+      .date { width: 96px; }
+      .recurring { padding: 20px; }
+      .recurring-grid { grid-template-columns: 1fr; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="topbar" aria-label="Page navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">RH</span> Richard Hoffmann</a>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="#june">June</a>
+        <a href="#august">August</a>
+        <a href="#recurring">Recurring</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow"><span class="dot"></span> Chronological events list</div>
+        <h1>Events, festivals & creative dates for <span class="gradient-text">2026</span>.</h1>
+        <p>A curated event calendar for games, XR, retro computing, comics, anime, makers, tech, demoscene, fandom, and startup culture.</p>
+      </div>
+      <aside class="stats-card" aria-label="Event overview statistics">
+        <div class="stat"><strong>40+</strong><span>events and deadlines collected</span></div>
+        <div class="stat"><strong>2026</strong><span>main list sorted by start date</span></div>
+        <div class="stat"><strong>DE</strong><span>strong focus on Germany and nearby Europe</span></div>
+        <div class="stat"><strong>XR</strong><span>games, tech, fandom, and maker culture</span></div>
+      </aside>
+    </section>
+
+    <div class="filters" aria-label="Jump to month">
+      <a href="#february">February</a>
+      <a href="#march">March</a>
+      <a href="#april">April</a>
+      <a href="#may">May</a>
+      <a href="#june">June</a>
+      <a href="#july">July</a>
+      <a href="#august">August</a>
+      <a href="#october">October</a>
+      <a href="#november">November</a>
+      <a href="#december">December</a>
+    </div>
+
+    <section class="month" id="february">
+      <h2>February 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>23</strong><span>Feb</span></div></div>
+          <div>
+            <h3>Gamecity Hamburg Prototype Funding 2026</h3>
+            <div class="meta"><span class="chip">23 Feb – 30 Mar</span><span class="chip">Funding</span><span class="chip">Hamburg</span></div>
+            <p>Prototype funding window for game projects.</p>
+            <a class="more" href="https://www.gamecity-hamburg.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="march">
+      <h2>March 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>12</strong><span>Mar</span></div></div>
+          <div>
+            <h3>SXSW South by Southwest</h3>
+            <div class="meta"><span class="chip">12 – 18 Mar</span><span class="chip">Austin, USA</span><span class="chip">Festival</span></div>
+            <p>Film, interactive media, music festivals, and conferences in Austin, Texas.</p>
+            <a class="more" href="https://sxsw.com" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="april">
+      <h2>April 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>03</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Revision 2026</h3>
+            <div class="meta"><span class="chip">3 – 6 Apr</span><span class="chip">Saarbrücken</span><span class="chip">Demoparty</span></div>
+            <p>Demoparty at E-Werk Saarbrücken.</p>
+            <a class="more" href="https://2026.revision-party.net" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>10</strong><span>Apr</span></div></div>
+          <div>
+            <h3>German Pinball Expo 2026</h3>
+            <div class="meta"><span class="chip">10 – 12 Apr</span><span class="chip">Bielefeld</span><span class="chip">Pinball</span></div>
+            <p>Pinball expo in Bielefeld, Germany.</p>
+            <a class="more" href="https://www.bielefeld.jetzt/node/1545766" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>13</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Rising Tide Challenge 2026</h3>
+            <div class="meta"><span class="chip">13 Apr – 30 Jun</span><span class="chip">Global</span><span class="chip">Trailer Jam</span></div>
+            <p>Global Game Jam and Blue Ocean Games team up for a global trailer jam with investment potential.</p>
+            <a class="more" href="https://blueoceangames.com/challenge/ggj-2026" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>15</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Bildungskonferenz #bildung26</h3>
+            <div class="meta"><span class="chip">15 – 16 Apr</span><span class="chip">Berlin</span><span class="chip">Education</span></div>
+            <p>Education conference in Berlin.</p>
+            <a class="more" href="https://bildungs-konferenz.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>17</strong><span>Apr</span></div></div>
+          <div>
+            <h3>CAGGTUS Leipzig 2026</h3>
+            <div class="meta"><span class="chip">17 – 19 Apr</span><span class="chip">Leipzig</span><span class="chip">Gaming</span></div>
+            <p>Gaming and community event in Leipzig.</p>
+            <a class="more" href="https://www.caggtus.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>17</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Ludum Dare 59</h3>
+            <div class="meta"><span class="chip">17 Apr</span><span class="chip">Game Jam</span><span class="chip">Online</span></div>
+            <p>Global online game jam event.</p>
+            <a class="more" href="https://ldjam.com" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>17</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Bitkom Quantencomputing Webinar</h3>
+            <div class="meta"><span class="chip">17 Apr · 10:00–11:00</span><span class="chip">Online</span><span class="chip">Quantum</span></div>
+            <p>Webinar on the Bitkom study about quantum computing in the German economy.</p>
+            <a class="more" href="https://www.bitkom.org/Bitkom/Publikationen/Quantencomputing-in-der-deutschen-Wirtschaft-2026" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>20</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Hannover Messe 2026</h3>
+            <div class="meta"><span class="chip">20 – 24 Apr</span><span class="chip">Hannover</span><span class="chip">Industry</span></div>
+            <p>Major industrial technology trade fair in Hannover.</p>
+            <a class="more" href="https://www.hannovermesse.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>23</strong><span>Apr</span></div></div>
+          <div>
+            <h3>HANNOVR @ Hannover Messe 2026</h3>
+            <div class="meta"><span class="chip">23 Apr</span><span class="chip">Hannover</span><span class="chip">VR Network</span></div>
+            <p>Networking event for VR in Hannover during Hannover Messe.</p>
+            <a class="more" href="https://www.meetup.com/hannovr/events/314053536/" target="_blank" rel="noopener">Open meetup ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>27</strong><span>Apr</span></div></div>
+          <div>
+            <h3>Bitkom Roundtable Metaverse #28</h3>
+            <div class="meta"><span class="chip">27 Apr</span><span class="chip">Stuttgart & Online</span><span class="chip">Industrial Metaverse</span></div>
+            <p>Industrial Metaverse, Industrial AI, and Physical AI roundtable.</p>
+            <a class="more" href="https://www.bitkom.org/Roundtable-Metaverse" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="may">
+      <h2>May 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>01</strong><span>May</span></div></div>
+          <div>
+            <h3>Wikimedia Hackathon 2026</h3>
+            <div class="meta"><span class="chip">1 – 3 May</span><span class="chip">Milan</span><span class="chip">Hackathon</span></div>
+            <p>Wikimedia Hackathon in Milan, Italy.</p>
+            <a class="more" href="https://pretix.eu/wikimedia/Hackathon-2026/" target="_blank" rel="noopener">Open tickets ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>05</strong><span>May</span></div></div>
+          <div>
+            <h3>May the Fourth 2026</h3>
+            <div class="meta"><span class="chip">5 May</span><span class="chip">Worldwide</span><span class="chip">Star Wars</span></div>
+            <p>Star Wars celebration date and related LEGO / collector news links.</p>
+            <a class="more" href="https://www.lego.com/en-de/page/star-wars-day-deals" target="_blank" rel="noopener">Open LEGO page ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>09</strong><span>May</span></div></div>
+          <div>
+            <h3>comicpark Erfurt</h3>
+            <div class="meta"><span class="chip">9 – 10 May</span><span class="chip">Erfurt</span><span class="chip">Comics & Cosplay</span></div>
+            <p>Comic, manga, cosplay, and geek culture weekend at egapark Erfurt.</p>
+            <a class="more" href="https://www.comicpark.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>15</strong><span>May</span></div></div>
+          <div>
+            <h3>ZZAP! Live 2026</h3>
+            <div class="meta"><span class="chip">15 – 16 May</span><span class="chip">Retro</span><span class="chip">Live Event</span></div>
+            <p>Retro gaming live event from Fusion Retro Books.</p>
+            <a class="more" href="https://www.tickettailor.com/events/fusionretrobooks/2032360" target="_blank" rel="noopener">Open tickets ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>16</strong><span>May</span></div></div>
+          <div>
+            <h3>HanaCon 2026</h3>
+            <div class="meta"><span class="chip">16 – 17 May</span><span class="chip">Hannover</span><span class="chip">Anime & Manga</span></div>
+            <p>Anime and manga convention in Hannover.</p>
+            <a class="more" href="https://hanacon.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>16</strong><span>May</span></div></div>
+          <div>
+            <h3>Power of the Force Convention 2026</h3>
+            <div class="meta"><span class="chip">16 – 17 May</span><span class="chip">Cologne</span><span class="chip">Star Wars</span></div>
+            <p>Star Wars convention in Cologne, Germany.</p>
+            <a class="more" href="https://www.poweroftheforce.net" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>22</strong><span>May</span></div></div>
+          <div>
+            <h3>FedCon 2026</h3>
+            <div class="meta"><span class="chip">22 – 24 May</span><span class="chip">Bonn</span><span class="chip">Sci-Fi</span></div>
+            <p>Sci-fi convention in Bonn, Germany.</p>
+            <a class="more" href="https://www.fedcon.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>29</strong><span>May</span></div></div>
+          <div>
+            <h3>DoKoMi 2026</h3>
+            <div class="meta"><span class="chip">29 – 31 May</span><span class="chip">Düsseldorf</span><span class="chip">Anime & Japan</span></div>
+            <p>Anime, Japan, and pop culture convention in Düsseldorf.</p>
+            <a class="more" href="https://www.dokomi.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>30</strong><span>May</span></div></div>
+          <div>
+            <h3>Flippermania 2026</h3>
+            <div class="meta"><span class="chip">30 – 31 May</span><span class="chip">Bünde</span><span class="chip">Pinball</span></div>
+            <p>Pinball event with Roger Sharpe, “The Man Who Saved the Game”.</p>
+            <a class="more" href="https://www.pinballevents.de/GPA/2026-FM/" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>31</strong><span>May</span></div></div>
+          <div>
+            <h3>ISCRAM 2026</h3>
+            <div class="meta"><span class="chip">31 May – 3 Jun</span><span class="chip">The Hague</span><span class="chip">Crisis Response</span></div>
+            <p>Conference theme: Building Stronger Futures, covering hazards, cybersecurity, AI, infrastructure, and climate change.</p>
+            <a class="more" href="https://iscram2026.com" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="june">
+      <h2>June 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>01</strong><span>Jun</span></div></div>
+          <div>
+            <h3>SXSW London 2026</h3>
+            <div class="meta"><span class="chip">1 – 6 Jun</span><span class="chip">London</span><span class="chip">Festival</span></div>
+            <p>South by Southwest event in London, UK.</p>
+            <a class="more" href="https://www.sxswlondon.com" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>02</strong><span>Jun</span></div></div>
+          <div>
+            <h3>Microsoft Build 2026</h3>
+            <div class="meta"><span class="chip">2 – 3 Jun</span><span class="chip">San Francisco & Online</span><span class="chip">Developer</span></div>
+            <p>Microsoft developer conference in San Francisco and online.</p>
+            <a class="more" href="https://register.build.microsoft.com/flow/microsoft/build26/welcome/page/welcome?wt.mc_id=msbuild26_ciarmar_corp_np_oo_dc_wb" target="_blank" rel="noopener">Open registration ↗</a>
+          </div>
+        </article>
+
+        <article class="event wide">
+          <div class="date"><div><strong>02</strong><span>Jun</span></div></div>
+          <div>
+            <h3>Summer Game Fest Season 2026</h3>
+            <div class="meta"><span class="chip">2 – mid Jun</span><span class="chip">Online</span><span class="chip">Game Shows</span></div>
+            <p>Listed showcases include PlayStation State of Play on 2 June, Summer Game Fest on 5 June at 23:00 MESZ, Wholesome Direct on 6 June at 18:00, Future Games Show on 6 June at 21:00, Xbox Games Showcase on 7 June at 19:00, PC Gaming Show on 7 June at 21:00, and a Nintendo Direct expected in mid-June.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>24</strong><span>Jun</span></div></div>
+          <div>
+            <h3>Female Founders Contest Niedersachsen</h3>
+            <div class="meta"><span class="chip">24 Jun · 12:00–21:00</span><span class="chip">Hannover</span><span class="chip">Startup</span></div>
+            <p>Female Founders Contest Niedersachsen, marked as “RICHTIG KLASSE!” in the source list.</p>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>30</strong><span>Jun</span></div></div>
+          <div>
+            <h3>GITEX AI EUROPE 2026</h3>
+            <div class="meta"><span class="chip">30 Jun – 21 Jul</span><span class="chip">Berlin</span><span class="chip">AI & Deep Tech</span></div>
+            <p>AI, cybersecurity, deep tech, startups, investment, and global collaboration at Messe Berlin.</p>
+            <a class="more" href="https://www.gitexeurope.com" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="july">
+      <h2>July 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>01</strong><span>Jul</span></div></div>
+          <div>
+            <h3>XRCC 2026</h3>
+            <div class="meta"><span class="chip">1 – 3 Jul</span><span class="chip">XR</span><span class="chip">Conference & Hackathon</span></div>
+            <p>Conference days, industry talks, networking, hackathon, and awards ceremony.</p>
+            <a class="more" href="https://www.xrcc.events/schedule" target="_blank" rel="noopener">Open schedule ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>31</strong><span>Jul</span></div></div>
+          <div>
+            <h3>AnimagiC 2026</h3>
+            <div class="meta"><span class="chip">31 Jul – 2 Aug</span><span class="chip">Anime</span><span class="chip">Convention</span></div>
+            <p>Anime convention event.</p>
+            <a class="more" href="https://animagic.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="august">
+      <h2>August 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>15</strong><span>Aug</span></div></div>
+          <div>
+            <h3>Maker Faire Hannover 2026</h3>
+            <div class="meta"><span class="chip">15 – 16 Aug</span><span class="chip">Hannover</span><span class="chip">Maker</span></div>
+            <p>Maker Faire in Hannover, Germany.</p>
+            <a class="more" href="https://maker-faire.de/en/hannover/" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>22</strong><span>Aug</span></div></div>
+          <div>
+            <h3>RETROnomiCON 2026</h3>
+            <div class="meta"><span class="chip">22 – 23 Aug</span><span class="chip">Braunschweig</span><span class="chip">Retro</span></div>
+            <p>Retro convention in Braunschweig, Germany.</p>
+            <a class="more" href="https://www.retronomicon.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>22</strong><span>Aug</span></div></div>
+          <div>
+            <h3>Retro Spiele Club Sommerfest 2026</h3>
+            <div class="meta"><span class="chip">22 Aug · 13:00–22:00</span><span class="chip">Hamburg</span><span class="chip">Retro Games</span></div>
+            <p>Summer party event by Retro Spiele Club Hamburg.</p>
+            <a class="more" href="https://www.retrospieleclub.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>23</strong><span>Aug</span></div></div>
+          <div>
+            <h3>devcom 2026</h3>
+            <div class="meta"><span class="chip">23 – 25 Aug</span><span class="chip">Cologne</span><span class="chip">Game Dev</span></div>
+            <p>Game developer conference before gamescom.</p>
+            <a class="more" href="https://dev.gamescom.global/conference/" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>26</strong><span>Aug</span></div></div>
+          <div>
+            <h3>gamescom 2026</h3>
+            <div class="meta"><span class="chip">26 – 30 Aug</span><span class="chip">Cologne</span><span class="chip">Games</span></div>
+            <p>Major gaming event in Cologne, Germany.</p>
+            <a class="more" href="https://www.gamescom.global" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>28</strong><span>Aug</span></div></div>
+          <div>
+            <h3>NexusCon 2026</h3>
+            <div class="meta"><span class="chip">28 – 30 Aug</span><span class="chip">Berlin</span><span class="chip">Convention</span></div>
+            <p>Convention in Berlin, Germany.</p>
+            <a class="more" href="https://nexuscon-berlin.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>29</strong><span>Aug</span></div></div>
+          <div>
+            <h3>comicpark Rostock</h3>
+            <div class="meta"><span class="chip">29 – 30 Aug</span><span class="chip">Rostock</span><span class="chip">Comics & Cosplay</span></div>
+            <p>Comic, manga, cosplay, shows, artist booths, walking acts, and workshops at IGA Park Rostock.</p>
+            <a class="more" href="https://www.comicpark.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="october">
+      <h2>October 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>02</strong><span>Oct</span></div></div>
+          <div>
+            <h3>MagicCon 2026</h3>
+            <div class="meta"><span class="chip">2 – 4 Oct</span><span class="chip">Convention</span><span class="chip">Fantasy</span></div>
+            <p>Fantasy convention event.</p>
+            <a class="more" href="https://www.magiccon.de/" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>02</strong><span>Oct</span></div></div>
+          <div>
+            <h3>NiCon 2026</h3>
+            <div class="meta"><span class="chip">2 – 4 Oct</span><span class="chip">Hannover</span><span class="chip">Convention</span></div>
+            <p>NiCon convention in Hannover.</p>
+            <a class="more" href="https://niconvention.info/" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>09</strong><span>Oct</span></div></div>
+          <div>
+            <h3>POLARIS Convention 2026</h3>
+            <div class="meta"><span class="chip">9 – 11 Oct</span><span class="chip">Hamburg</span><span class="chip">Pop Culture</span></div>
+            <p>Pop culture and gaming convention in Hamburg.</p>
+            <a class="more" href="https://polaris-con.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>TBA</strong><span>Oct</span></div></div>
+          <div>
+            <h3>Ludum Dare 60</h3>
+            <div class="meta"><span class="chip">October 2026</span><span class="chip">Online</span><span class="chip">Game Jam</span></div>
+            <p>Global online game jam event.</p>
+            <a class="more" href="https://ldjam.com" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>22</strong><span>Oct</span></div></div>
+          <div>
+            <h3>Spiel 2026</h3>
+            <div class="meta"><span class="chip">22 – 25 Oct</span><span class="chip">Essen</span><span class="chip">Board Games</span></div>
+            <p>Major board game fair in Essen, Germany.</p>
+            <a class="more" href="https://spiel-essen.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>23</strong><span>Oct</span></div></div>
+          <div>
+            <h3>MEX 2026 Berlin</h3>
+            <div class="meta"><span class="chip">23 – 25 Oct</span><span class="chip">Berlin</span><span class="chip">Manga & Entertainment</span></div>
+            <p>MEX convention in Berlin.</p>
+            <a class="more" href="https://mex-berlin.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="date"><div><strong>24</strong><span>Oct</span></div></div>
+          <div>
+            <h3>TimeLash Doctor Who Convention 2026</h3>
+            <div class="meta"><span class="chip">24 – 25 Oct</span><span class="chip">Groß-Umstadt</span><span class="chip">Doctor Who</span></div>
+            <p>Doctor Who convention at Stadthalle Groß-Umstadt, Germany.</p>
+            <a class="more" href="https://timelash-event.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="november">
+      <h2>November 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>28</strong><span>Nov</span></div></div>
+          <div>
+            <h3>Comic Con Stuttgart 2026</h3>
+            <div class="meta"><span class="chip">28 – 29 Nov</span><span class="chip">Stuttgart</span><span class="chip">Comic Con</span></div>
+            <p>Comic Con event in Stuttgart, Germany.</p>
+            <a class="more" href="https://www.comiccon.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="month" id="december">
+      <h2>December 2026</h2>
+      <div class="event-grid">
+        <article class="event">
+          <div class="date"><div><strong>12</strong><span>Dec</span></div></div>
+          <div>
+            <h3>Retro Spiele Club Weihnachtsfeier 2026</h3>
+            <div class="meta"><span class="chip">12 Dec · 13:00–22:00</span><span class="chip">Hamburg</span><span class="chip">Retro Games</span></div>
+            <p>Christmas party event by Retro Spiele Club Hamburg.</p>
+            <a class="more" href="https://www.retrospieleclub.de" target="_blank" rel="noopener">Open website ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="recurring" id="recurring">
+      <h2>Recurring & fandom dates</h2>
+      <p>Reference dates and recurring cultural milestones from the uploaded list.</p>
+      <div class="recurring-grid">
+        <article class="mini-card">
+          <h3>OASIS Release</h3>
+          <p>Ready Player One universe date: December 8, 2025.</p>
+          <a href="https://readyplayerone.fandom.com/wiki/OASIS" target="_blank" rel="noopener">Open reference ↗</a>
+        </article>
+        <article class="mini-card">
+          <h3>Ready Player One Book</h3>
+          <p>Book publication date: August 16, 2011.</p>
+          <a href="https://en.wikipedia.org/wiki/Ready_Player_One" target="_blank" rel="noopener">Open reference ↗</a>
+        </article>
+        <article class="mini-card">
+          <h3>Ready Player One Movie</h3>
+          <p>Movie release date in the United States: March 29, 2018.</p>
+          <a href="https://en.wikipedia.org/wiki/Ready_Player_One_(film)" target="_blank" rel="noopener">Open reference ↗</a>
+        </article>
+        <article class="mini-card">
+          <h3>Snow Crash Book</h3>
+          <p>Publication date: June 1992.</p>
+          <a href="https://en.wikipedia.org/wiki/Snow_Crash" target="_blank" rel="noopener">Open reference ↗</a>
+        </article>
+        <article class="mini-card">
+          <h3>Sword Art Online Sales Begin</h3>
+          <p>Recurring fandom date: November 5.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Sword Art Online Official Service</h3>
+          <p>Kirito logs into the game on November 6 at 13:00 JST.</p>
+        </article>
+        <article class="mini-card">
+          <h3>C-Dinner: April Sessions</h3>
+          <p>Wolfenbüttel on 1 April, Hannover on 8 April, Braunschweig on 15 April, and Hannover Messe special on 23 April.</p>
+        </article>
+        <article class="mini-card">
+          <h3>C-Dinner: Business Angel Session</h3>
+          <p>Hannover, 10 June: “Wie denkt ein Business Angel?” with Matthias Helfrich.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Female Founders Contest Niedersachsen</h3>
+          <p>Hannover, 24 June 2026, 12:00–21:00.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <a class="back-link" href="index.html">← Back to index</a>
+      <span>© <span id="year"></span> Richard Hoffmann · Events page</span>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
