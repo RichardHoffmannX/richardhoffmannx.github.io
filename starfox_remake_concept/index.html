@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Space Fox Remake — Concept Gallery</title>
+  <meta name="description" content="Concept mood gallery and prompts for a modern animal-pilot space shooter remake.">
+  <style>
+    :root {
+      --bg: #050814;
+      --panel: rgba(10, 18, 35, 0.78);
+      --panel-2: rgba(15, 28, 55, 0.9);
+      --text: #eaf6ff;
+      --muted: #9ab5c9;
+      --line: rgba(100, 215, 255, 0.22);
+      --accent: #31d8ff;
+      --accent-2: #ffb547;
+      --danger: #ff526d;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(49,216,255,.20), transparent 32rem),
+                  radial-gradient(circle at top right, rgba(255,82,109,.18), transparent 28rem),
+                  linear-gradient(135deg, #03050d 0%, #071125 45%, #02040a 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      padding: 72px clamp(20px, 5vw, 72px) 44px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+      pointer-events: none;
+    }
+    .eyebrow {
+      color: var(--accent);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(40px, 8vw, 104px);
+      line-height: .9;
+      margin: 0;
+      max-width: 1100px;
+      text-transform: uppercase;
+      letter-spacing: -.06em;
+    }
+    .subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 23px);
+      line-height: 1.5;
+      margin: 28px 0 0;
+    }
+    .controls {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+      position: relative;
+      z-index: 2;
+    }
+    input {
+      min-width: min(460px, 100%);
+      flex: 1;
+      background: rgba(2, 8, 18, .7);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 15px 18px;
+      border-radius: 999px;
+      outline: none;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(49,216,255,.08);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    main { padding: 36px clamp(16px, 4vw, 56px) 70px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(17, 31, 60, .86), rgba(4, 10, 22, .94));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: #06101d;
+      transition: transform .35s ease;
+    }
+    .card:hover img { transform: scale(1.03); }
+    .card-body { padding: 22px; }
+    .tag {
+      display: inline-flex;
+      border: 1px solid rgba(49,216,255,.32);
+      background: rgba(49,216,255,.09);
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    h3 { margin: 16px 0 10px; font-size: 24px; }
+    p { color: var(--muted); line-height: 1.55; }
+    .copy {
+      margin-top: 12px;
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 13px 16px;
+      background: linear-gradient(90deg, var(--accent), #6ee7ff);
+      color: #02101d;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .brief {
+      margin: 0 0 26px;
+      padding: 22px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,181,71,.28);
+      background: rgba(255,181,71,.07);
+      color: #ffdca0;
+    }
+    footer {
+      padding: 30px clamp(16px, 4vw, 56px);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      header { padding-top: 44px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Concept Gallery / Prompt Library</div>
+    <h1>Modern Space Fox Remake</h1>
+    <p class="subtitle">A polished website collecting the generated mood images, gameplay angles, cockpit UI studies, and reusable prompts for a modern arcade space-shooter remake concept.</p>
+    <div class="controls">
+      <input id="search" placeholder="Search images or prompts — cockpit, boss, ocean, third-person..." aria-label="Search gallery">
+      <a class="pill" href="#gallery">View gallery</a>
+    </div>
+  </header>
+  <main>
+    <section class="brief">
+      <strong>Creative direction:</strong> fast rail-shooter readability, heroic animal-pilot fantasy, bright blue thrusters, clean lock-on UI, readable mission objectives, and cinematic biomes that could work as game levels.
+    </section>
+    <section id="gallery" class="grid">
+      
+<article class="card" data-title="hero mood concept">
+  <a href="assets/space_battle_with_fox_pilot.png" target="_blank" aria-label="Open Hero Mood Concept full size">
+    <img src="assets/space_battle_with_fox_pilot.png" alt="Hero Mood Concept">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Hero Mood Concept</h3>
+    <p>Cinematic key art: fox-like ace pilot in a modern white-and-blue starfighter cockpit, large space battle over a planet, wingmates, laser fire, explosions, dramatic nebula lighting, premium AAA sci-fi remake mood image, ultra-wide composition, highly detailed, energetic, no official logos.</p>
+    <button class="copy" data-prompt="Cinematic key art: fox-like ace pilot in a modern white-and-blue starfighter cockpit, large space battle over a planet, wingmates, laser fire, explosions, dramatic nebula lighting, premium AAA sci-fi remake mood image, ultra-wide composition, highly detailed, energetic, no official logos.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="carrier launch variation">
+  <a href="assets/spacebound_hero_and_starfighter_squadron.png" target="_blank" aria-label="Open Carrier Launch Variation full size">
+    <img src="assets/spacebound_hero_and_starfighter_squadron.png" alt="Carrier Launch Variation">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Carrier Launch Variation</h3>
+    <p>Modern anthropomorphic fox pilot standing beside/inside a starfighter near a massive orbital carrier, squadron launching over Earth-like planet, blue engine trails, heroic sci-fi lighting, next-generation space shooter remake concept art.</p>
+    <button class="copy" data-prompt="Modern anthropomorphic fox pilot standing beside/inside a starfighter near a massive orbital carrier, squadron launching over Earth-like planet, blue engine trails, heroic sci-fi lighting, next-generation space shooter remake concept art.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="asteroid dogfight">
+  <a href="assets/fox_pilot_in_a_space_dogfight.png" target="_blank" aria-label="Open Asteroid Dogfight full size">
+    <img src="assets/fox_pilot_in_a_space_dogfight.png" alt="Asteroid Dogfight">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Asteroid Dogfight</h3>
+    <p>First-person-adjacent cinematic cockpit angle with fox pilot, asteroid belt chaos, enemy fighters, lock-on HUD reflections on canopy, green and red laser fire, explosive debris, fast motion, modern rail-shooter energy.</p>
+    <button class="copy" data-prompt="First-person-adjacent cinematic cockpit angle with fox pilot, asteroid belt chaos, enemy fighters, lock-on HUD reflections on canopy, green and red laser fire, explosive debris, fast motion, modern rail-shooter energy.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="ocean planet chase">
+  <a href="assets/futuristic_dogfight_over_stormy_seas.png" target="_blank" aria-label="Open Ocean Planet Chase full size">
+    <img src="assets/futuristic_dogfight_over_stormy_seas.png" alt="Ocean Planet Chase">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Ocean Planet Chase</h3>
+    <p>Fox-like pilot in sleek Arwing-inspired craft racing above stormy alien seas and island cliffs, wingmates in formation, water spray, sunset god rays, incoming enemy fire, cinematic in-game concept screenshot.</p>
+    <button class="copy" data-prompt="Fox-like pilot in sleek Arwing-inspired craft racing above stormy alien seas and island cliffs, wingmates in formation, water spray, sunset god rays, incoming enemy fire, cinematic in-game concept screenshot.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="final fortress assault">
+  <a href="assets/fox_pilot_in_space_battle.png" target="_blank" aria-label="Open Final Fortress Assault full size">
+    <img src="assets/fox_pilot_in_space_battle.png" alt="Final Fortress Assault">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Final Fortress Assault</h3>
+    <p>Fox-like pilot diving toward a gigantic neon enemy fortress in orbit, squadron formation, heavy missile trails, burning battlefield below, dark sci-fi villain base, AAA space shooter remake key art.</p>
+    <button class="copy" data-prompt="Fox-like pilot diving toward a gigantic neon enemy fortress in orbit, squadron formation, heavy missile trails, burning battlefield below, dark sci-fi villain base, AAA space shooter remake key art.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="third-person gameplay shot">
+  <a href="assets/space_combat_over_a_mystical_island.png" target="_blank" aria-label="Open Third-Person Gameplay Shot full size">
+    <img src="assets/space_combat_over_a_mystical_island.png" alt="Third-Person Gameplay Shot">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Third-Person Gameplay Shot</h3>
+    <p>Third-person behind-the-ship gameplay screenshot, modern Star Fox-inspired rail shooter over mystical ocean islands, visible HUD with shield, hull, radar, score, combo and weapon meters, wingmates labeled Falco and Slippy, lock-on reticle, cinematic action.</p>
+    <button class="copy" data-prompt="Third-person behind-the-ship gameplay screenshot, modern Star Fox-inspired rail shooter over mystical ocean islands, visible HUD with shield, hull, radar, score, combo and weapon meters, wingmates labeled Falco and Slippy, lock-on reticle, cinematic action.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="third-person gameplay mood board">
+  <a href="assets/a_single_composite_image_mood_board_of_multiple.png" target="_blank" aria-label="Open Third-Person Gameplay Mood Board full size">
+    <img src="assets/a_single_composite_image_mood_board_of_multiple.png" alt="Third-Person Gameplay Mood Board">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Third-Person Gameplay Mood Board</h3>
+    <p>Composite mood board of multiple third-person in-game screenshots for a modern animal-pilot space shooter: volcano world, asteroid station, canyon base, ocean city, green ruins, ice valley, orbital carrier, giant mech boss, clean HUD variations.</p>
+    <button class="copy" data-prompt="Composite mood board of multiple third-person in-game screenshots for a modern animal-pilot space shooter: volcano world, asteroid station, canyon base, ocean city, green ruins, ice valley, orbital carrier, giant mech boss, clean HUD variations.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="first-person cockpit hero">
+  <a href="assets/futuristic_cockpit_in_dynamic_space_battle.png" target="_blank" aria-label="Open First-Person Cockpit Hero full size">
+    <img src="assets/futuristic_cockpit_in_dynamic_space_battle.png" alt="First-Person Cockpit Hero">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>First-Person Cockpit Hero</h3>
+    <p>First-person cockpit view from a futuristic Arwing-inspired fighter, fox pilot hands on twin controls, cockpit canopy, detailed HUD with radar, score, target counter, shield, energy, wingmate status, dogfight over lush planet with waterfalls and city towers.</p>
+    <button class="copy" data-prompt="First-person cockpit view from a futuristic Arwing-inspired fighter, fox pilot hands on twin controls, cockpit canopy, detailed HUD with radar, score, target counter, shield, energy, wingmate status, dogfight over lush planet with waterfalls and city towers.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="cockpit ui poster">
+  <a href="assets/a_large_collage_poster_like_image_with_multiple.png" target="_blank" aria-label="Open Cockpit UI Poster full size">
+    <img src="assets/a_large_collage_poster_like_image_with_multiple.png" alt="Cockpit UI Poster">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Cockpit UI Poster</h3>
+    <p>Large promotional collage of first-person cockpit gameplay variations for a modern Star Fox-style remake: space fleet, asteroid bomber, city approach, canyon walker, snow base, lava fortress, nebula carrier, hangar interior, Andross-like boss, HUD panels and comms.</p>
+    <button class="copy" data-prompt="Large promotional collage of first-person cockpit gameplay variations for a modern Star Fox-style remake: space fleet, asteroid bomber, city approach, canyon walker, snow base, lava fortress, nebula carrier, hangar interior, Andross-like boss, HUD panels and comms.">Copy prompt</button>
+  </div>
+</article>
+
+<article class="card" data-title="cockpit screenshot grid">
+  <a href="assets/a_large_composite_collage_of_multiple_video_game_c.png" target="_blank" aria-label="Open Cockpit Screenshot Grid full size">
+    <img src="assets/a_large_composite_collage_of_multiple_video_game_c.png" alt="Cockpit Screenshot Grid">
+  </a>
+  <div class="card-body">
+    <span class="tag">Concept Image</span>
+    <h3>Cockpit Screenshot Grid</h3>
+    <p>Nine-panel grid of cockpit HUD screenshots, each showing different mission biomes: green valley, asteroid field, desert boss canyon, ocean base, snowy mountains, emerald ruins, orbital fleet, giant mech boss, bridge chase; shield and hull UI visible.</p>
+    <button class="copy" data-prompt="Nine-panel grid of cockpit HUD screenshots, each showing different mission biomes: green valley, asteroid field, desert boss canyon, ocean base, snowy mountains, emerald ruins, orbital fleet, giant mech boss, bridge chase; shield and hull UI visible.">Copy prompt</button>
+  </div>
+</article>
+    </section>
+  </main>
+  <footer>
+    Built as a local concept website. Open any image to view it full-size; use “Copy prompt” to reuse or iterate on the prompt.
+  </footer>
+  <script>
+    const search = document.querySelector('#search');
+    const cards = Array.from(document.querySelectorAll('.card'));
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+    document.querySelectorAll('.copy').forEach(button => {
+      button.addEventListener('click', async () => {
+        const text = button.dataset.prompt;
+        try {
+          await navigator.clipboard.writeText(text);
+          const old = button.textContent;
+          button.textContent = 'Copied prompt';
+          setTimeout(() => button.textContent = old, 1400);
+        } catch (e) {
+          window.prompt('Copy this prompt:', text);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
