@@ -1,1 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Event Database</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            background: #f3f5f8;
+            color: #1f2937;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            margin-bottom: 25px;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        h1,
+        h2 {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #2563eb;
+            border-color: transparent;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            padding: 11px 18px;
+            border: 0;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button.secondary {
+            background: #64748b;
+        }
+
+        button.danger {
+            background: #dc2626;
+        }
+
+        button.edit {
+            background: #d97706;
+        }
+
+        .message {
+            display: none;
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .message.success {
+            display: block;
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .message.error {
+            display: block;
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .event-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .event-item {
+            padding: 18px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
+        }
+
+        .event-item h3 {
+            margin: 0 0 8px;
+        }
+
+        .event-date {
+            margin-bottom: 10px;
+            color: #475569;
+            font-weight: bold;
+        }
+
+        .event-description {
+            margin-bottom: 12px;
+            white-space: pre-wrap;
+        }
+
+        .event-link {
+            display: inline-block;
+            margin-bottom: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        .empty-message {
+            padding: 20px;
+            text-align: center;
+            color: #64748b;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 18px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <section class="card">
+            <h1>Event Database</h1>
+
+            <form id="eventForm">
+                <input type="hidden" id="eventId">
+
+                <div class="form-group">
+                    <label for="eventName">Event name</label>
+                    <input
+                        type="text"
+                        id="eventName"
+                        maxlength="150"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Date</label>
+                    <input
+                        type="date"
+                        id="eventDate"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea
+                        id="eventDescription"
+                        maxlength="3000"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventLink">Link</label>
+                    <input
+                        type="url"
+                        id="eventLink"
+                        placeholder="https://example.com"
+                        required
+                    >
+                </div>
+
+                <div class="button-row">
+                    <button type="submit" id="saveButton">
+                        Save event
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancelButton"
+                        class="secondary"
+                        hidden
+                    >
+                        Cancel editing
+                    </button>
+                </div>
+
+                <div id="message" class="message"></div>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Saved events</h2>
+
+            <div id="eventList" class="event-list"></div>
+        </section>
+    </main>
+
+    <script>
+        "use strict";
+
+        const DATABASE_NAME = "EventDatabase";
+        const DATABASE_VERSION = 1;
+        const STORE_NAME = "events";
+
+        let database = null;
+
+        const eventForm = document.getElementById("eventForm");
+        const eventIdInput = document.getElementById("eventId");
+        const eventNameInput = document.getElementById("eventName");
+        const eventDateInput = document.getElementById("eventDate");
+        const eventDescriptionInput =
+            document.getElementById("eventDescription");
+        const eventLinkInput = document.getElementById("eventLink");
+
+        const eventList = document.getElementById("eventList");
+        const saveButton = document.getElementById("saveButton");
+        const cancelButton = document.getElementById("cancelButton");
+        const messageElement = document.getElementById("message");
+
+        /**
+         * Open or create the IndexedDB database.
+         */
+        function openDatabase() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(
+                    DATABASE_NAME,
+                    DATABASE_VERSION
+                );
+
+                request.onupgradeneeded = event => {
+                    const db = event.target.result;
+
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        const store = db.createObjectStore(STORE_NAME, {
+                            keyPath: "id",
+                            autoIncrement: true
+                        });
+
+                        store.createIndex(
+                            "date",
+                            "date",
+                            { unique: false }
+                        );
+
+                        store.createIndex(
+                            "name",
+                            "name",
+                            { unique: false }
+                        );
+                    }
+                };
+
+                request.onsuccess = event => {
+                    resolve(event.target.result);
+                };
+
+                request.onerror = event => {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        /**
+         * Save a new event or update an existing event.
+         */
+        function saveEvent(eventData) {
+            return new Promise((resolve, reject) => {
+                const transaction = database.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.put(eventData);
+
+                request.onsuccess = () => resolve(request.result);
+
+                request.onerror = event => {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        /**
+         * Load all events from IndexedDB.
+         */
+        function getAllEvents() {
+            return new Promise((resolve, reject) => {
+                const transaction = database.transaction(
+                    STORE_NAME,
+                    "readonly"
+                );
+
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.getAll();
+
+                request.onsuccess = () => resolve(request.result);
+
+                request.onerror = event => {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        /**
+         * Get one event by its ID.
+         */
+        function getEventById(id) {
+            return new Promise((resolve, reject) => {
+                const transaction = database.transaction(
+                    STORE_NAME,
+                    "readonly"
+                );
+
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.get(id);
+
+                request.onsuccess = () => resolve(request.result);
+
+                request.onerror = event => {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        /**
+         * Delete an event by its ID.
+         */
+        function deleteEventFromDatabase(id) {
+            return new Promise((resolve, reject) => {
+                const transaction = database.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.delete(id);
+
+                request.onsuccess = () => resolve();
+
+                request.onerror = event => {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        /**
+         * Escape text before inserting it into HTML.
+         */
+        function escapeHtml(value) {
+            const element = document.createElement("div");
+            element.textContent = value ?? "";
+            return element.innerHTML;
+        }
+
+        /**
+         * Validate and normalize an external URL.
+         */
+        function normalizeUrl(value) {
+            const url = new URL(value);
+
+            if (url.protocol !== "http:" &&
+                url.protocol !== "https:") {
+                throw new Error(
+                    "Only HTTP and HTTPS links are permitted."
+                );
+            }
+
+            return url.href;
+        }
+
+        /**
+         * Convert YYYY-MM-DD into a readable local date.
+         */
+        function formatDate(dateString) {
+            const date = new Date(dateString + "T00:00:00");
+
+            return new Intl.DateTimeFormat("en-DE", {
+                year: "numeric",
+                month: "long",
+                day: "2-digit"
+            }).format(date);
+        }
+
+        /**
+         * Show a success or error message.
+         */
+        function showMessage(text, type = "success") {
+            messageElement.textContent = text;
+            messageElement.className = `message ${type}`;
+
+            window.setTimeout(() => {
+                messageElement.textContent = "";
+                messageElement.className = "message";
+            }, 4000);
+        }
+
+        /**
+         * Reset the form to create mode.
+         */
+        function resetForm() {
+            eventForm.reset();
+            eventIdInput.value = "";
+            saveButton.textContent = "Save event";
+            cancelButton.hidden = true;
+        }
+
+        /**
+         * Display all saved events.
+         */
+        async function renderEvents() {
+            try {
+                const events = await getAllEvents();
+
+                events.sort((firstEvent, secondEvent) => {
+                    return firstEvent.date.localeCompare(
+                        secondEvent.date
+                    );
+                });
+
+                eventList.innerHTML = "";
+
+                if (events.length === 0) {
+                    eventList.innerHTML = `
+                        <div class="empty-message">
+                            No events have been saved yet.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+                for (const event of events) {
+                    const item = document.createElement("article");
+                    item.className = "event-item";
+
+                    item.innerHTML = `
+                        <h3>${escapeHtml(event.name)}</h3>
+
+                        <div class="event-date">
+                            ${escapeHtml(formatDate(event.date))}
+                        </div>
+
+                        <div class="event-description">
+                            ${escapeHtml(event.description)}
+                        </div>
+
+                        <a
+                            class="event-link"
+                            href="${escapeHtml(event.link)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ${escapeHtml(event.link)}
+                        </a>
+
+                        <div class="button-row">
+                            <button
+                                type="button"
+                                class="edit"
+                                data-action="edit"
+                                data-id="${event.id}"
+                            >
+                                Edit
+                            </button>
+
+                            <button
+                                type="button"
+                                class="danger"
+                                data-action="delete"
+                                data-id="${event.id}"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    `;
+
+                    eventList.appendChild(item);
+                }
+            } catch (error) {
+                console.error(error);
+                showMessage(
+                    "The events could not be loaded.",
+                    "error"
+                );
+            }
+        }
+
+        /**
+         * Load an event into the form for editing.
+         */
+        async function editEvent(id) {
+            try {
+                const event = await getEventById(id);
+
+                if (!event) {
+                    throw new Error("Event not found.");
+                }
+
+                eventIdInput.value = event.id;
+                eventNameInput.value = event.name;
+                eventDateInput.value = event.date;
+                eventDescriptionInput.value = event.description;
+                eventLinkInput.value = event.link;
+
+                saveButton.textContent = "Update event";
+                cancelButton.hidden = false;
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+                eventNameInput.focus();
+            } catch (error) {
+                console.error(error);
+                showMessage(
+                    "The event could not be opened.",
+                    "error"
+                );
+            }
+        }
+
+        /**
+         * Ask for confirmation and delete an event.
+         */
+        async function removeEvent(id) {
+            const confirmed = window.confirm(
+                "Do you really want to delete this event?"
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            try {
+                await deleteEventFromDatabase(id);
+                await renderEvents();
+
+                if (Number(eventIdInput.value) === id) {
+                    resetForm();
+                }
+
+                showMessage("Event deleted.");
+            } catch (error) {
+                console.error(error);
+                showMessage(
+                    "The event could not be deleted.",
+                    "error"
+                );
+            }
+        }
+
+        /**
+         * Handle form submission.
+         */
+        eventForm.addEventListener("submit", async event => {
+            event.preventDefault();
+
+            try {
+                const existingId = Number(eventIdInput.value);
+
+                const eventData = {
+                    name: eventNameInput.value.trim(),
+                    date: eventDateInput.value,
+                    description:
+                        eventDescriptionInput.value.trim(),
+                    link: normalizeUrl(
+                        eventLinkInput.value.trim()
+                    ),
+                    updatedAt: new Date().toISOString()
+                };
+
+                if (!eventData.name ||
+                    !eventData.date ||
+                    !eventData.description ||
+                    !eventData.link) {
+                    throw new Error(
+                        "Please complete all fields."
+                    );
+                }
+
+                if (existingId) {
+                    eventData.id = existingId;
+
+                    const existingEvent =
+                        await getEventById(existingId);
+
+                    eventData.createdAt =
+                        existingEvent?.createdAt ??
+                        new Date().toISOString();
+                } else {
+                    eventData.createdAt =
+                        new Date().toISOString();
+                }
+
+                await saveEvent(eventData);
+                resetForm();
+                await renderEvents();
+
+                showMessage(
+                    existingId
+                        ? "Event updated successfully."
+                        : "Event saved successfully."
+                );
+            } catch (error) {
+                console.error(error);
+
+                showMessage(
+                    error.message ||
+                    "The event could not be saved.",
+                    "error"
+                );
+            }
+        });
+
+        /**
+         * Handle edit and delete buttons with event delegation.
+         */
+        eventList.addEventListener("click", event => {
+            const button = event.target.closest(
+                "button[data-action]"
+            );
+
+            if (!button) {
+                return;
+            }
+
+            const id = Number(button.dataset.id);
+            const action = button.dataset.action;
+
+            if (action === "edit") {
+                editEvent(id);
+            }
+
+            if (action === "delete") {
+                removeEvent(id);
+            }
+        });
+
+        cancelButton.addEventListener("click", resetForm);
+
+        /**
+         * Initialize the application.
+         */
+        async function initializeApplication() {
+            try {
+                database = await openDatabase();
+                await renderEvents();
+            } catch (error) {
+                console.error(error);
+
+                showMessage(
+                    "IndexedDB could not be initialized.",
+                    "error"
+                );
+            }
+        }
+
+        initializeApplication();
+    </script>
+</body>
+</html>
