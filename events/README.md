@@ -190,6 +190,11 @@ POLARIS CONVENTION 2026, Hamburg
 09 - 11 Oct 2026
 https://polaris-con.de
 
+SimRacing Expo Frankfurt 2026
+16. bis 18. Oktober 2026
+Frankfurt Messe – Halle 12
+https://simracingexpo.de
+
 MEX 2026 Berlin
 23 – 25 October 2026
 https://mex-berlin.de
