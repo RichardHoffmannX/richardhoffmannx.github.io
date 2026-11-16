@@ -207,6 +207,10 @@ Retro Spiele Club Hamburg, Germany
 Weihnachtsfeier 2026: SA, 12.12. (ab 13:00 – ca. 22:00) (*)
 https://www.retrospieleclub.de
 
+Time Lash XI (Doctor Who) Convention, Groß-Umstadt, Germany
+23 & 24 October 2027
+https://timelash-event.de
+
 ----------------
 **Recurring Events**
 ----------------
